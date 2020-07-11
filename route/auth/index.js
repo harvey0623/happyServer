@@ -7,4 +7,9 @@ router.post('/login', async (req, res) => {
    res.json(result);
 });
 
+router.post('/register', async (req, res) => {
+   let result = await authDao.register(req.body).then(res => res);
+   res.json(result);
+});
+
 module.exports = router;
