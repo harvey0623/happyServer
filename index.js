@@ -6,8 +6,9 @@ const cors = require('cors');
 const dotenv = require('dotenv').config({
    path: process.env.NODE_ENV === 'dev' ? '.env.dev' : '.env'
 });
-const port = process.env.PORT || 3034;
+const port = process.env.PORT || 3033;
 const auth = require('./route/auth/index.js');
+const community = require('./route/community/index.js');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -16,6 +17,7 @@ app.use(cors());
 app.listen(port);
 
 app.use('/auth', auth);
+app.use('/community', community);
 app.use((req, res) => {
-   res.send('<h1>not found</h1>');
+   res.send('<h1>hello world~</h1>');
 });
