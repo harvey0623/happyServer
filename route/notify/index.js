@@ -4,7 +4,6 @@ const notifyDao = require('../../dao/notify.js');
 
 router.post('/', async (req, res) => {
    let result = await notifyDao.getNotify(req.body).then(res => res);
-   console.log(result);
    res.json(result);
 });
 
