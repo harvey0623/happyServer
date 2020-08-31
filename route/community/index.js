@@ -17,4 +17,10 @@ router.post('/member_detail', async (req, res) => {
    res.json(result);
 });
 
+router.post('/community_list', async (req, res) => {
+   console.log(req.body)
+   let result = await communityDao.getCommunityList(req.body).then(res => res);
+   res.json(result);
+});
+
 module.exports = router;

@@ -53,4 +53,21 @@ module.exports = {
       });
       return result;
    },
+   async getCommunityList(payload) {
+      let result = await axios({
+         url: 'https://hj-platform.dev.pin2wall.com/api/app/community/community_list',
+         method: 'post',
+         data: {
+            iUserId: payload.iUserId,
+            vToken: payload.vToken,
+            vCity: payload.vCity,
+            vArea: payload.vArea
+         }
+      }).then(res => {
+         return res.data;
+      }).catch(err => {
+         console.log(err);
+      });
+      return result;
+   },
 }
