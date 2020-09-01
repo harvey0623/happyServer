@@ -27,4 +27,9 @@ router.post('/member_doadd', async (req, res) => {
    res.json(result);
 });
 
+router.post('/member_dosave', async (req, res) => {
+   let result = await communityDao.addMember(req.body).then(res => res);
+   res.json(result);
+});
+
 module.exports = router;

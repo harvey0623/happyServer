@@ -58,7 +58,18 @@ module.exports = {
          method: 'post',
          data: payload
       }).then(res => {
-         console.log(res)
+         return res.data;
+      }).catch(err => {
+         console.log(err);
+      });
+      return result;
+   },
+   async saveMember(payload) {
+      let result = await axios({
+         url: 'https://hj-platform.dev.pin2wall.com/api/app/community/member_dosave',
+         method: 'post',
+         data: payload
+      }).then(res => {
          return res.data;
       }).catch(err => {
          console.log(err);
