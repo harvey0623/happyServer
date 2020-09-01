@@ -4,11 +4,7 @@ module.exports = {
       let result = await axios({
          url: 'https://hj-platform.dev.pin2wall.com/api/app/community/announcement_list',
          method: 'post',
-         data: {
-            iUserId: payload.iUserId,
-            vToken : payload.vToken,
-            iCommunityId: payload.iCommunityId
-         }
+         data: payload
       }).then(res => {
          res.data.aaData.forEach(item => { 
             let imgUrl = item.iPosition === 1 ? '1000x150' : '120x120';
@@ -24,12 +20,7 @@ module.exports = {
       let result = await axios({
          url: 'https://hj-platform.dev.pin2wall.com/api/app/community/notify_list',
          method: 'post',
-         data: {
-            iUserId: payload.iUserId,
-            vToken : payload.vToken,
-            iCommunityId: payload.iCommunityId,
-            iCategory: payload.iCategory
-         }
+         data: payload
       }).then(res => {
          return res.data;
       }).catch(err => {
@@ -41,11 +32,7 @@ module.exports = {
       let result = await axios({
          url: 'https://hj-platform.dev.pin2wall.com/api/app/community/member_detail',
          method: 'post',
-         data: {
-            iUserId: payload.iUserId,
-            vToken : payload.vToken,
-            vAccount: payload.vAccount
-         }
+         data: payload
       }).then(res => {
          return res.data;
       }).catch(err => {
@@ -57,13 +44,21 @@ module.exports = {
       let result = await axios({
          url: 'https://hj-platform.dev.pin2wall.com/api/app/community/community_list',
          method: 'post',
-         data: {
-            iUserId: payload.iUserId,
-            vToken: payload.vToken,
-            vCity: payload.vCity,
-            vArea: payload.vArea
-         }
+         data: payload
       }).then(res => {
+         return res.data;
+      }).catch(err => {
+         console.log(err);
+      });
+      return result;
+   },
+   async addMember(payload) {
+      let result = await axios({
+         url: 'https://hj-platform.dev.pin2wall.com/api/app/community/member_doadd',
+         method: 'post',
+         data: payload
+      }).then(res => {
+         console.log(res)
          return res.data;
       }).catch(err => {
          console.log(err);
