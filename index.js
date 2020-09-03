@@ -9,6 +9,7 @@ const dotenv = require('dotenv').config({
 const port = process.env.PORT || 3033;
 const auth = require('./route/auth/index.js');
 const community = require('./route/community/index.js');
+const security = require('./route/security/index.js');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -18,6 +19,7 @@ app.listen(port);
 
 app.use('/auth', auth);
 app.use('/community', community);
+app.use('/security', security);
 app.use((req, res) => {
    res.send('<h1>hello world~</h1>');
 });
