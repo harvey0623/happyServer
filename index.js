@@ -22,4 +22,5 @@ app.use('/community', community);
 app.use('/security', security);
 app.use((req, res) => {
    res.send('<h1>hello world~</h1>');
+   res.end();
 });
