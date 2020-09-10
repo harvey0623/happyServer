@@ -13,7 +13,7 @@ module.exports = {
    },
    async getSchedule(payload) {
       return await axios({
-         url: 'https://hj-platform.dev.pin2wall.com/api/app/security/schedule_list',
+         url: 'https://hj-platform.dev.pin2wall.com/api/app/property/schedule_list',
          method: 'post',
          data: payload
       }).then(res => {
