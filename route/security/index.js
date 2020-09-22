@@ -12,5 +12,10 @@ router.post('/schedule_list', async (req, res) => {
    res.json(result);
 });
 
+router.post('/mission_list', async (req, res) => {
+   let result = await securityDao.getMission(req.body).then(res => res);
+   res.json(result);
+});
+
 
 module.exports = router;
