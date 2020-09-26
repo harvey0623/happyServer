@@ -17,5 +17,10 @@ router.post('/mission_list', async (req, res) => {
    res.json(result);
 });
 
+router.post('/upload/mission', async (req, res) => {
+   let result = await securityDao.uploadMission(req.body).then(res => res);
+   res.json(result);
+});
+
 
 module.exports = router;

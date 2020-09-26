@@ -1,8 +1,8 @@
-const axios = require('axios');
+const happyAxios = require('../utility/axios/index.js');
 module.exports = {
    async getBulletin(payload) {
-      return await axios({
-         url: 'https://hj-platform.dev.pin2wall.com/api/app/community/announcement_list',
+      return await happyAxios({
+         url: '/api/app/community/announcement_list',
          method: 'post',
          data: payload
       }).then(res => {
@@ -16,8 +16,8 @@ module.exports = {
       });
    },
    async getNotify(payload) {
-      return await axios({
-         url: 'https://hj-platform.dev.pin2wall.com/api/app/community/notify_list',
+      return await happyAxios({
+         url: '/api/app/community/notify_list',
          method: 'post',
          data: payload
       }).then(res => {
@@ -27,8 +27,8 @@ module.exports = {
       });
    },
    async getMemberDetail(payload) {
-      return await axios({
-         url: 'https://hj-platform.dev.pin2wall.com/api/app/community/member_detail',
+      return await happyAxios({
+         url: '/api/app/community/member_detail',
          method: 'post',
          data: payload
       }).then(res => {
@@ -38,8 +38,8 @@ module.exports = {
       });
    },
    async getCommunityList(payload) {
-      return await axios({
-         url: 'https://hj-platform.dev.pin2wall.com/api/app/community/community_list',
+      return await happyAxios({
+         url: '/api/app/community/community_list',
          method: 'post',
          data: payload
       }).then(res => {
@@ -49,8 +49,8 @@ module.exports = {
       });
    },
    async addMember(payload) {
-      return await axios({
-         url: 'https://hj-platform.dev.pin2wall.com/api/app/community/member_doadd',
+      return await happyAxios({
+         url: '/api/app/community/member_doadd',
          method: 'post',
          data: payload
       }).then(res => {
@@ -60,8 +60,8 @@ module.exports = {
       });
    },
    async saveMember(payload) {
-      return await axios({
-         url: 'https://hj-platform.dev.pin2wall.com/api/app/community/member_dosave',
+      return await happyAxios({
+         url: '/api/app/community/member_dosave',
          method: 'post',
          data: payload
       }).then(res => {
@@ -71,8 +71,8 @@ module.exports = {
       });
    },
    async deleteMember(payload) {
-      return await axios({
-         url: 'https://hj-platform.dev.pin2wall.com/api/app/community/member_dodel',
+      return await happyAxios({
+         url: '/api/app/community/member_dodel',
          method: 'post',
          data: payload
       }).then(res => {

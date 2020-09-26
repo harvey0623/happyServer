@@ -1,8 +1,8 @@
-const axios = require('axios');
+const happyAxios = require('../utility/axios/index.js');
 module.exports = {
    async login(payload) {
-      return await axios({
-         url: 'https://hj-platform.dev.pin2wall.com/app/doLoginApp',
+      return await happyAxios({
+         url: '/app/doLoginApp',
          method: 'post',
          data: {
             vAccount: payload.vAccount,
@@ -15,8 +15,8 @@ module.exports = {
       });
    },
    async register(payload) {
-      return await axios({
-         url: 'https://hj-platform.dev.pin2wall.com/app/doRegisterApp',
+      return await happyAxios({
+         url: '/app/doRegisterApp',
          method: 'post',
          data: payload
       }).then(res => {
