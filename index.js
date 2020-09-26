@@ -1,3 +1,4 @@
+const path = require('path');
 const express = require('express')
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
@@ -11,16 +12,17 @@ const auth = require('./route/auth/index.js');
 const community = require('./route/community/index.js');
 const security = require('./route/security/index.js');
 
+app.listen(port);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(cors());
-app.listen(port);
+app.use('/', express.static(path.join(__dirname, 'public')));
 
 app.use('/auth', auth);
 app.use('/community', community);
 app.use('/security', security);
 app.use((req, res) => {
-   res.send('<h1>hello world~</h1>');
+   res.send('not found');
    res.end();
 });
