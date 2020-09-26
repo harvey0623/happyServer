@@ -24,5 +24,29 @@ module.exports = {
       }).catch(err => {
          console.log(err);
       });
+   },
+   async sendSMS(payload) {
+      return await happyAxios({
+         url: '/app/sendSMS',
+         method: 'get',
+         params: {
+            ...payload
+         }
+      }).then(res => {
+         return res.data;
+      }).catch(err => {
+         console.log(err);
+      });
+   },
+   async checkCode(payload) {
+      return await happyAxios({
+         url: '/app/checkCode',
+         method: 'post',
+         data: payload
+      }).then(res => {
+         return res.data;
+      }).catch(err => {
+         console.log(err);
+      });
    }
 }
