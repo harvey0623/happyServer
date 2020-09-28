@@ -2,6 +2,11 @@ const express = require('express');
 const router = express.Router();
 const securityDao = require('../../dao/security');
 
+router.post('/upload/attendance', async (req, res) => {
+   let result = await securityDao.uploadAttendance(req.body).then(res => res);
+   res.json(result);
+});
+
 router.post('/attendance_list', async (req, res) => {
    let result = await securityDao.getAttendance(req.body).then(res => res);
    res.json(result);

@@ -1,5 +1,16 @@
 const happyAxios = require('../utility/axios/index.js');
 module.exports = {
+   async uploadAttendance(payload) {
+      return await happyAxios({
+         url: '/api/app/security/upload/attendance',
+         method: 'post',
+         data: payload
+      }).then(res => {
+         return res.data;
+      }).catch(err => {
+         console.log(err);
+      });
+   },
    async getAttendance(payload) {
       return await happyAxios({
          url: '/api/app/security/attendance_list',
