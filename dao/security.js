@@ -9,6 +9,7 @@ module.exports = {
          return res.data;
       }).catch(err => {
          console.log(err);
+         return err;
       });
    },
    async getAttendance(payload) {
