@@ -48,5 +48,16 @@ module.exports = {
       }).catch(err => {
          console.log(err);
       });
-   }
+   },
+   async newPassword(payload) {
+      return await happyAxios({
+         url: '/app/newPassword',
+         method: 'post',
+         data: payload
+      }).then(res => {
+         return res.data;
+      }).catch(err => {
+         console.log(err);
+      });
+   },
 }

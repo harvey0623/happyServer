@@ -22,4 +22,9 @@ router.post('/app/checkCode', async (req, res) => {
    res.json(result);
 });
 
+router.post('/app/newPassword', async (req, res) => {
+   let result = await authDao.newPassword(req.body).then(res => res);
+   res.json(result);
+});
+
 module.exports = router;
