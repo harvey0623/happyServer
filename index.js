@@ -5,7 +5,6 @@ const cookieParser = require('cookie-parser');
 const app = express();
 const cors = require('cors');
 const dotenv = require('dotenv').config({
-   // path: process.env.NODE_ENV === 'dev' ? '.env.dev' : '.env'
    path: '.env.dev'
 });
 const port = process.env.PORT || 3033;
@@ -14,47 +13,18 @@ const community = require('./route/community/index.js');
 const security = require('./route/security/index.js');
 
 app.listen(port);
+app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({ 
    limit: '50mb'
 }));
-app.use(cookieParser());
 
 app.use(cors({
-   origin: 'http://localhost:5500',
+   origin: 'http://localhost:8080',
    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
    credentials: true
 }));
 app.use('/', express.static(path.join(__dirname, 'public')));
-
-// app.use(function (req, res, next) {
-
-//    // Website you wish to allow to connect
-//    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:5500');
-
-//    // Request methods you wish to allow
-//    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-
-//    // Request headers you wish to allow
-//    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-
-//    // Set to true if you need the website to include cookies in the requests sent
-//    // to the API (e.g. in case you use sessions)
-//    res.setHeader('Access-Control-Allow-Credentials', true);
-
-//    // Pass to next layer of middleware
-//    next();
-// });
-
-app.get('/getCookie', (req, res) => {
-   res.cookie('user', 'harvey');
-   res.json({ status: true })
-});
-
-app.post('/sendCookie', (req, res) => {
-   console.log(req.cookies);
-   res.json({ true: true });
-});
 
 app.use('/auth', auth);
 app.use('/community', community);
