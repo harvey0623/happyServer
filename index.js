@@ -19,11 +19,12 @@ app.use(bodyParser.json({
    limit: '50mb'
 }));
 
-app.use(cors({
-   origin: 'http://localhost:8080',
-   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-   credentials: true
-}));
+app.use(cors());
+// app.use(cors({
+//    origin: 'http://localhost:8080',
+//    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+//    credentials: true
+// }));
 app.use('/', express.static(path.join(__dirname, 'public')));
 
 app.use('/auth', auth);
