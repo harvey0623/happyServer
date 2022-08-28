@@ -25,12 +25,12 @@ app.use(cors());
 //    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
 //    credentials: true
 // }));
-app.use('/', express.static(path.join(__dirname, 'public')));
+app.use('/public', express.static(path.join(__dirname, 'public')));
 
 app.use('/auth', auth);
 app.use('/community', community);
 app.use('/security', security);
 app.use((req, res) => {
-   res.send('not found');
+   res.write('<h1>hello happy server</h1>');
    res.end();
 });
