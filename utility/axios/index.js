@@ -1,6 +1,6 @@
 const axios = require('axios');
 const happyAxios = axios.create({
-   baseURL: process.env.BASE_URL,
+   baseURL: 'https://hj-platform.dev.pin2wall.com',
 });
 
 
